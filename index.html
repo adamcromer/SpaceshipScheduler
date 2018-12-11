@@ -16,22 +16,64 @@
     <link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <link rel="icon" type="image/png" href="assets/images/icon.png">
-    <title>Train Scheduler</title>
+    <title>Spaceship Scheduler</title>
 
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">Train Scheduler</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-                to
-                featured content or information.</p>
+    <div class="container rounded border p-0 mt-2">
+        <div class="jumbotron mb-0 pt-2 pb-2">
+            <h1 class="display-4">Hello, world!</h1>
             <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">It uses utility classes for typography and spacing to space content out within the larger container.</p>
         </div>
+    </div>
+    <div class="container rounded border mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Spaceship Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (In Minutes)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Serenity</td>
+                    <td>Osiris</td>
+                    <td>1000</td>
+                    <td>10:30 PM</td>
+                    <td>X Minutes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container rounded border mt-2">
+        <h3 class="">Add spaceship</h3>
+        <form>
+            <div class="form-group mt-2">
+                <label for="exampleInputEmail1">Spaceship Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Starship Enterprise">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Destination</label>
+                <input type="text" class="form-control" id="destination" placeholder="Omicron Ceti III">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">First Departure Time</label>
+                <input type="time" class="form-control" id="firstTime">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Frequency (In Minutes)</label>
+                <input type="number" class="form-control" id="monthlyRate" placeholder="1,000">
+            </div>
+            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
 
