@@ -17,6 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Karla|Prompt" rel="stylesheet">
 
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <title>Spaceship Scheduler</title>
@@ -26,13 +27,13 @@
 <body>
     <div class="container rounded p-0 mt-2">
         <div class="row">
-            <div class="col-8 jumbotron mb-0 ml-3 mr-4 float-left border pt-0 pb-0">
-                <h1 class="display-4">Spaceship Scheduler!</h1>
+            <div class="col-8 jumbotron mb-0 ml-3 mr-4 float-left border pt-0 pb-0 bg-black">
+                <h1 class="titleFont">Spaceship Scheduler</h1>
                 <hr class="my-4">
-                <p class="lead">Add your own Spaceship to find out when it's scheduled to arrive here next.</p>
+                <p class="lead pFont">Add your own Spaceship to find out when it's scheduled to arrive here next.</p>
             </div>
-            <div id="about" class="col-3 rounded border border-white pFont p-0 float-right h-50">
-                <p>Made by Adam Cromer</p>
+            <div id="about" class="col-3 rounded border border-white bg-white pFont p-0 float-right h-50 pFont">
+                <h5 class="titleFont">Made by Adam Cromer</h5>
                 <a href="https://adamcromer.github.io/Responsive-Portfolio/index.html">
                     <button type="button" class="float-left border-white btn-lg btn-dark p-1 ml-3 mb-1">
                         About
@@ -51,8 +52,8 @@
             </div>
         </div>
     </div>
-    <div class="container rounded border mt-2">
-        <h4>Spaceship Schedule</h4>
+    <div class="container rounded border mt-2 bg-white">
+        <h4 class="m-3">Current Schedule</h4>
         <table class="table">
             <thead>
                 <tr>
@@ -74,9 +75,9 @@
             </tbody>
         </table>
     </div>
-    <div class="container rounded border mt-2">
-        <h4 class="">Add Spaceship</h4>
-        <form>
+    <div class="container rounded border mt-2 bg-white mb-5">
+        <h4 class="m-3">Add Spaceship</h4>
+        <form class="m-3">
             <div class="form-group mt-2">
                 <label for="exampleInputEmail1">Spaceship Name</label>
                 <input type="text" class="form-control" id="name" placeholder="Starship Enterprise">

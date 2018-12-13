@@ -1,17 +1,36 @@
-/* html {
-    background: url(../images/space.jpg) no-repeat center center fixed;
+html {
+    background: url(../images/stars.jpg) no-repeat center center fixed;
     background-size: cover;    
 }
 
 body {
     background:transparent;
-} */
-
-p {
-    text-align:center;
 }
 
+.titleFont {
+    font-family: 'Prompt', serif;
+    color:#bdab62;
+    text-shadow:
+    0.1vw 0.1vw 0 white,
+    0.1vw 0.1vw 0 white,
+    0.1vw 0.1vw 0 white,
+    0.1vw 0.1vw 0 white;
+}
+
+.pFont {
+    font-family: 'Karla', sans-serif;
+    
+}
+
+/* .jumbotron {
+    background-color:black;
+} */
+
+/* p {
+    text-align:center;
+} */
+
 #about {
-    background-color:blue;
+    /* background-color:blue; */
     margin-top:2.5vw;
 }
