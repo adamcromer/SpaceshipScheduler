@@ -1,6 +1,6 @@
 html {
-    background: url(../images/stars.jpg) no-repeat center center fixed;
-    background-size: cover;    
+    background: url(../images/space.jpg) repeat center center fixed;
+    background-size: 30%;    
 }
 
 body {
