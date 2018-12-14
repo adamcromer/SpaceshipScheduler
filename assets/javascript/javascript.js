@@ -15,6 +15,8 @@ $(document).ready(function () {
     var database = firebase.database();
 
     submit = $("#submit");
+    table = $("#tableBody");
+
 
     submit.click(function (event) {
         event.preventDefault();
@@ -44,6 +46,28 @@ $(document).ready(function () {
             firstTime: firstTime,
             frequency: frequency
         });
+    });
+
+    database.ref().on("child_added", function (snapshot) {
+        console.log(snapshot);
+
+        var newRow = $("<tr>");
+        var shipName = $("<td>").text(snapshot.val().name);
+        var shipDest = $("<td>").text(snapshot.val().destination);
+        var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
+        var nextTime = $("<td>").text(snapshot.val().firstTime);
+        var minsAway = $("<td>").text((snapshot.val().frequency) + " Minutes Away");
+
+        newRow.append(shipName);
+        newRow.append(shipDest);
+        newRow.append(shipFreq);
+        newRow.append(nextTime);
+        newRow.append(minsAway);
+        table.append(newRow);
+
+
+
+
 
 
 
