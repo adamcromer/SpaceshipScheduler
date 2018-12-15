@@ -24,7 +24,9 @@ $(document).ready(function () {
         //Grabs the input variables values
         var name = $("#name").val().trim();
         var destination = $("#destination").val().trim();
+        // var firstTime = moment($("#firstTime").val().trim(), "MM/DD/YYYY").format("X");
         var firstTime = $("#firstTime").val().trim();
+        
         var frequency = $("#frequency").val().trim();
 
         //Resets the values
@@ -55,9 +57,23 @@ $(document).ready(function () {
         var shipName = $("<td>").text(snapshot.val().name);
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
+        frequency = snapshot.val().frequency;
         var nextTime = $("<td>").text(snapshot.val().firstTime);
-        var minsAway = $("<td>").text((snapshot.val().frequency) + " Minutes Away");
+        var firstTime = snapshot.val().firstTime;
+        
 
+        var currentTime = moment();
+        console.log(firstTime);
+        firstTime = moment(firstTime, "HH mm");
+
+        var nextTrain = moment.duration(currentTime.diff(firstTime));
+        // console.log(moment(nextTrain, 'HH mm').format());
+        nextTrain = Math.round(nextTrain.asMinutes());
+        nextTrain = frequency - (nextTrain % frequency);
+        console.log(nextTrain);
+
+        
+        var minsAway = $("<td>").text((nextTrain) + " Minutes Away");
         newRow.append(shipName);
         newRow.append(shipDest);
         newRow.append(shipFreq);
