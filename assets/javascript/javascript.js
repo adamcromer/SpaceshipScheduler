@@ -51,7 +51,7 @@ $(document).ready(function () {
     });
 
     database.ref().on("child_added", function (snapshot) {
-        console.log(snapshot);
+        // console.log(snapshot);
 
         var newRow = $("<tr>");
         var shipName = $("<td>").text(snapshot.val().name);
