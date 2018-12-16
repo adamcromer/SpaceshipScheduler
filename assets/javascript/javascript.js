@@ -58,22 +58,29 @@ $(document).ready(function () {
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
         frequency = snapshot.val().frequency;
-        var nextTime = $("<td>").text(snapshot.val().firstTime);
+        
         var firstTime = snapshot.val().firstTime;
         
 
         var currentTime = moment();
         console.log(firstTime);
-        firstTime = moment(firstTime, "HH mm");
+        console.log(currentTime);
+
+        firstTime = moment(firstTime, "H:mm A");
 
         var nextTrain = moment.duration(currentTime.diff(firstTime));
         // console.log(moment(nextTrain, 'HH mm').format());
         nextTrain = Math.round(nextTrain.asMinutes());
         nextTrain = frequency - (nextTrain % frequency);
-        console.log(nextTrain);
+        var nextArrival = moment(currentTime + nextTrain);
+        nextArrival = moment(nextArrival, "H:mm A").format();
+        console.log(nextArrival);
+        console.log(moment(nextArrival, "H:mm A"));
 
-        
+
+        var nextTime = $("<td>").text(nextArrival);
         var minsAway = $("<td>").text((nextTrain) + " Minutes Away");
+        // var minsAway = $("<td>").text(moment(nextTrain).calendar());
         newRow.append(shipName);
         newRow.append(shipDest);
         newRow.append(shipFreq);
