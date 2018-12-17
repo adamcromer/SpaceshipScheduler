@@ -32,12 +32,6 @@ $(document).ready(function () {
         $("#firstTime").val("");
         $("#frequency").val("");
 
-        console.log(name);
-        console.log(destination);
-        console.log(firstTime);
-        console.log(frequency);
-
-
         database.ref().push({
 
             name: name,
@@ -53,7 +47,7 @@ $(document).ready(function () {
         var shipName = $("<td>").text(snapshot.val().name);
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
-        frequency = snapshot.val().frequency;
+        var frequency = snapshot.val().frequency;
 
         var firstTime = snapshot.val().firstTime;
         var currentTime = moment();
