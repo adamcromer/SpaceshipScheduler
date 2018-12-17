@@ -26,7 +26,7 @@ $(document).ready(function () {
         var destination = $("#destination").val().trim();
         // var firstTime = moment($("#firstTime").val().trim(), "MM/DD/YYYY").format("X");
         var firstTime = $("#firstTime").val().trim();
-        
+
         var frequency = $("#frequency").val().trim();
 
         //Resets the values
@@ -58,9 +58,9 @@ $(document).ready(function () {
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
         frequency = snapshot.val().frequency;
-        
+
         var firstTime = snapshot.val().firstTime;
-        
+
 
         var currentTime = moment();
         console.log(firstTime);
@@ -69,17 +69,25 @@ $(document).ready(function () {
         firstTime = moment(firstTime, "H:mm A");
 
         var nextTrain = moment.duration(currentTime.diff(firstTime));
-        // console.log(moment(nextTrain, 'HH mm').format());
         nextTrain = Math.round(nextTrain.asMinutes());
         nextTrain = frequency - (nextTrain % frequency);
         var nextArrival = moment(currentTime + nextTrain);
-        nextArrival = moment(nextArrival, "H:mm A").format();
+        // nextArrival = moment(nextArrival, "H:mm A").format();
         console.log(nextArrival);
         console.log(moment(nextArrival, "H:mm A"));
 
-        
-        var nextTime = $("<td>").text(nextArrival);
-        var minsAway = $("<td>").text((nextTrain) + " Minutes Away");
+        if (currentTime < firstTime) {
+            var nextTrain = moment.duration(firstTime.diff(currentTime));
+            nextTrain = Math.round(nextTrain.asMinutes());
+            nextTrain = frequency - (nextTrain % frequency);
+            var nextTime = $("<td>").text(firstTime);
+            var minsAway = $("<td>").text((nextTrain) + " Minutes Away");
+
+        }
+        else {
+            var nextTime = $("<td>").text(nextArrival);
+            var minsAway = $("<td>").text((nextTrain) + " Minutes Away");
+        }
         // var minsAway = $("<td>").text(moment(nextTrain).calendar());
         newRow.append(shipName);
         newRow.append(shipDest);
