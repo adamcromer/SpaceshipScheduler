@@ -1,34 +1,35 @@
 html {
     background: url(../images/space.jpg) repeat center center fixed;
-    background-size: 30%;    
+    background-size: 30%;
 }
 
 body {
     background:transparent;
 }
 
+.black {
+    background-color:black;
+}
+
 .titleFont {
     font-family: 'Prompt', serif;
-    color:#bdab62;
+    color:white;
     text-shadow:
-    0.1vw 0.1vw 0 white,
-    0.1vw 0.1vw 0 white,
-    0.1vw 0.1vw 0 white,
-    0.1vw 0.1vw 0 white;
+    0.1vw 0.1vw 0 #d860a8,
+    0.1vw 0.1vw 0 #d860a8,
+    0.1vw 0.1vw 0 #d860a8,
+    0.1vw 0.1vw 0 #d860a8;
+}
+
+.hFont {
+    font-family: 'Prompt', serif;
+    color:white;
 }
 
 .pFont {
     font-family: 'Karla', sans-serif;
-    
+    color:white;
 }
-
-/* .jumbotron {
-    background-color:black;
-} */
-
-/* p {
-    text-align:center;
-} */
 
 #about {
     /* background-color:blue; */
