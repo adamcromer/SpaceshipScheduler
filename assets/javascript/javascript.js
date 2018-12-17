@@ -1,4 +1,3 @@
-//n.toLocaleString()
 $(document).ready(function () {
 
     // Initialize Firebase
@@ -24,9 +23,7 @@ $(document).ready(function () {
         //Grabs the input variables values
         var name = $("#name").val().trim();
         var destination = $("#destination").val().trim();
-        // var firstTime = moment($("#firstTime").val().trim(), "MM/DD/YYYY").format("X");
         var firstTime = $("#firstTime").val().trim();
-
         var frequency = $("#frequency").val().trim();
 
         //Resets the values
@@ -51,7 +48,6 @@ $(document).ready(function () {
     });
 
     database.ref().on("child_added", function (snapshot) {
-        // console.log(snapshot);
 
         var newRow = $("<tr class='pFont black'>");
         var shipName = $("<td>").text(snapshot.val().name);
@@ -60,8 +56,6 @@ $(document).ready(function () {
         frequency = snapshot.val().frequency;
 
         var firstTime = snapshot.val().firstTime;
-
-
         var currentTime = moment();
         console.log(firstTime);
         console.log(currentTime);
@@ -73,8 +67,8 @@ $(document).ready(function () {
         nextTrain = frequency - (nextTrain % frequency);
         var nextArrival = moment(currentTime + nextTrain);
         // nextArrival = moment(nextArrival, "H:mm A").format();
-        console.log(nextArrival);
-        console.log(moment(nextArrival, "H:mm A"));
+        console.log(currentTime);
+        console.log(firstTime);
 
         if (currentTime < firstTime) {
             var nextTrain = moment.duration(firstTime.diff(currentTime));
@@ -88,7 +82,7 @@ $(document).ready(function () {
             var nextTime = $("<td>").text(nextArrival);
             var minsAway = $("<td>").text((nextTrain) + " Minutes Away");
         }
-        // var minsAway = $("<td>").text(moment(nextTrain).calendar());
+
         newRow.append(shipName);
         newRow.append(shipDest);
         newRow.append(shipFreq);
@@ -96,21 +90,6 @@ $(document).ready(function () {
         newRow.append(minsAway);
         table.append(newRow);
 
-
-
-
-
-
-
     });
 
-
-
-
-
-
-
 });
-
-
-
