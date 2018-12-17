@@ -37,18 +37,29 @@ body {
 }
 
 .btn, .btn-lg {
-    background-color:black;
+    background-color:#d860a8;
     color:white;
     border-color:white;
 }
 
-.btn:hover, .btn-lg:hover {
-    background-color:#d860a8;
+.btn:hover, .btn-lg:hover {    
+    background-color:#2a307e;
+    border-color:white;
     color:white;
 }
 
-/* input {
-    background-color:black!;
-    color:white;
-    !color:white;
-} */
+::-webkit-scrollbar {
+    width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+    background: black; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d860a8; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2a307e;
+}

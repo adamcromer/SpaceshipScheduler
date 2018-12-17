@@ -77,7 +77,7 @@ $(document).ready(function () {
         console.log(nextArrival);
         console.log(moment(nextArrival, "H:mm A"));
 
-
+        
         var nextTime = $("<td>").text(nextArrival);
         var minsAway = $("<td>").text((nextTrain) + " Minutes Away");
         // var minsAway = $("<td>").text(moment(nextTrain).calendar());
