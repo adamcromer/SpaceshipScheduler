@@ -31,7 +31,7 @@
             <div class="col-8 jumbotron mb-0 ml-3 mr-4 float-left border pt-0 pb-0 black">
                 <h1 class="titleFont">Spaceship Scheduler</h1>
                 <hr class="my-4">
-                <p class="lead pFont">Add your own Spaceship to find out when it's scheduled to arrive here next.</p>
+                <p class="lead pFont">Add your own Spaceship to find out when it's scheduled to arrive next.</p>
             </div>
             <div id="about" class="col-3 rounded border border-white black pFont p-0 float-right h-50 pFont">
                 <h5 class="titleFont text-center">Made by Adam Cromer</h5>
@@ -53,11 +53,11 @@
             </div>
         </div>
     </div>
-    <div class="container rounded border mt-2 bg-white">
-        <h4 class="m-3">Current Schedule</h4>
+    <div class="container rounded border mt-2 black">
+        <h4 class="m-3 titleFont">Current Schedule</h4>
         <table class="table">
             <thead>
-                <tr>
+                <tr class="hFont">
                     <th scope="col">Spaceship Name</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Frequency (In Minutes)</th>
@@ -69,24 +69,24 @@
             </tbody>
         </table>
     </div>
-    <div class="container rounded border mt-2 bg-white mb-5">
-        <h4 class="m-3">Add Spaceship</h4>
-        <form class="m-3">
+    <div class="container rounded border mt-2 mb-5 black">
+        <h4 class="m-3 titleFont bg-black">Add Spaceship</h4>
+        <form class="m-3 pFont">
             <div class="form-group mt-2">
                 <label for="exampleInputEmail1">Spaceship Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Starship Enterprise">
+                <input type="text" class="form-control black" id="name" placeholder="Starship Enterprise">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Destination</label>
-                <input type="text" class="form-control" id="destination" placeholder="Omicron Ceti III">
+                <input type="text" class="form-control black" id="destination" placeholder="Omicron Ceti III">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">First Departure Time</label>
-                <input type="time" class="form-control" id="firstTime">
+                <input type="time" class="form-control black" id="firstTime">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Frequency (In Minutes)</label>
-                <input type="number" class="form-control" id="frequency" placeholder="1,000">
+                <input type="number" class="form-control black" id="frequency" placeholder="1,000">
             </div>
             <button id="submit" type="submit" class="btn btn-primary">Submit</button>
         </form>

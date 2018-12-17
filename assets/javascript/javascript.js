@@ -53,7 +53,7 @@ $(document).ready(function () {
     database.ref().on("child_added", function (snapshot) {
         // console.log(snapshot);
 
-        var newRow = $("<tr>");
+        var newRow = $("<tr class='pFont black'>");
         var shipName = $("<td>").text(snapshot.val().name);
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");

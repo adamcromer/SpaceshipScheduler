@@ -35,3 +35,20 @@ body {
     /* background-color:blue; */
     margin-top:2.5vw;
 }
+
+.btn, .btn-lg {
+    background-color:black;
+    color:white;
+    border-color:white;
+}
+
+.btn:hover, .btn-lg:hover {
+    background-color:#d860a8;
+    color:white;
+}
+
+/* input {
+    background-color:black!;
+    color:white;
+    !color:white;
+} */
