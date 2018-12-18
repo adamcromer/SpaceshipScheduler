@@ -15,6 +15,7 @@ $(document).ready(function () {
 
     submit = $("#submit");
     table = $("#tableBody");
+    error = $("#error");
 
     submit.click(function (event) {
         event.preventDefault();
@@ -26,11 +27,11 @@ $(document).ready(function () {
         var frequency = $("#frequency").val().trim();
 
         if (name === "" || destination === "" || firstTime === "" || frequency === "") {
-
-            alert("Please fill in all details to add new train");
+            error.show();
         }
-
         else {
+            error.hide();
+
             //Resets the values
             $("#name").val("");
             $("#destination").val("");
