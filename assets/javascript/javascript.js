@@ -13,9 +13,17 @@ $(document).ready(function () {
     firebase.initializeApp(config);
     var database = firebase.database();
 
-    submit = $("#submit");
-    table = $("#tableBody");
-    error = $("#error");
+    var submit = $("#submit");
+    var table = $("#tableBody");
+    var error = $("#error");
+    var emptyTimeVar;
+
+    //Function to show the current time
+    function setCurrentTime() {
+        currentTime.text(moment().format('dddd, MMMM Do, YYYY [at] h:mm:ss A'));
+    }
+    //Starts the time function to run every second
+    emptyTimeVar = setInterval(setCurrentTime, 1000);
 
     submit.click(function (event) {
         event.preventDefault();
