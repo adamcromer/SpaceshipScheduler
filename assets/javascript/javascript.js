@@ -19,6 +19,9 @@ $(document).ready(function () {
     var error = $("#error");
     var emptyTimeVar;
     var currentTime = $(".currentTime");
+    var confirmDeleteDiv = $("#confirmDeleteDiv");
+    var exitDelete = $(".exitDelete");
+    var deleteText = $("#deleteText");
 
     //Function to show the current time
     function setCurrentTime() {
@@ -61,7 +64,7 @@ $(document).ready(function () {
         }
     });
 
-    clear.click(function() {
+    clear.click(function () {
         event.preventDefault();
         clearInput();
     })
@@ -74,6 +77,7 @@ $(document).ready(function () {
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
         var deleteShip = $("<td class='btn ml-3 xBtn text-center'>").text("X");
+        deleteShip.attr('ship-name', snapshot.val().name);
 
         var frequency = parseInt(snapshot.val().frequency);
         var firstTime = parseInt(snapshot.val().firstTime);
@@ -97,7 +101,12 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".xBtn", function () {
-        
+        deleteText.html("Are you sure you want to delete the spaceship " + ($(this).attr('ship-name')) + "? <br> Please only delete if you made this ship.");
+        confirmDeleteDiv.show();
+    });
+
+    exitDelete.click(function() {
+        confirmDeleteDiv.hide();
     });
 
 });

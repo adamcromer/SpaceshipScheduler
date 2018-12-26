@@ -52,6 +52,19 @@ body {
     margin-bottom:0.25vw;
 }
 
+#confirmDeleteDiv {
+    position:fixed;
+    width:40%;
+    height:15vw;
+    top:10vw;
+    left:30%;
+    display:none;
+}
+
+#deleteTitle {
+    margin-left:33%;
+}
+
 ::-webkit-scrollbar {
     width: 1vw;
 }
