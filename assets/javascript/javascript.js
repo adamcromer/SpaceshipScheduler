@@ -11,8 +11,9 @@ $(document).ready(function () {
     };
 
     firebase.initializeApp(config);
-    var database = firebase.database();
 
+    //Declare variables to their HTML counterparts
+    var database = firebase.database();
     var submit = $("#submit");
     var clear = $("#clear");
     var table = $("#tableBody");
@@ -20,8 +21,10 @@ $(document).ready(function () {
     var emptyTimeVar;
     var currentTime = $(".currentTime");
     var confirmDeleteDiv = $("#confirmDeleteDiv");
+    var confirmDeleteButton = $("#confirmDeleteButton");
     var exitDelete = $(".exitDelete");
     var deleteText = $("#deleteText");
+    var shipKey;
 
     //Function to show the current time
     function setCurrentTime() {
@@ -47,6 +50,7 @@ $(document).ready(function () {
         var firstTime = $("#firstTime").val().trim();
         var frequency = $("#frequency").val().trim();
 
+        //Shows an error if an input is empty.
         if (name === "" || destination === "" || firstTime === "" || frequency === "") {
             error.show();
         }
@@ -64,25 +68,30 @@ $(document).ready(function () {
         }
     });
 
+    console.log(database);
+
     clear.click(function () {
         event.preventDefault();
         clearInput();
     })
 
-    //Pulls info from Firebase.
+    //Pulls info from Firebase
     database.ref().on("child_added", function (snapshot) {
 
+        //Creating rows to add to the table
         var newRow = $("<tr class='pFont black'>");
         var shipName = $("<td>").text(snapshot.val().name);
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
         var deleteShip = $("<td class='btn ml-3 xBtn text-center'>").text("X");
         deleteShip.attr('ship-name', snapshot.val().name);
+        deleteShip.attr('key', snapshot.key);
 
         var frequency = parseInt(snapshot.val().frequency);
         var firstTime = parseInt(snapshot.val().firstTime);
         var currentTime = moment();
 
+        //Using moment to calculate the proper time
         var minutesAway = currentTime.diff(moment.unix(firstTime), "minutes");
         minutesAway = minutesAway % frequency;
         minutesAway = frequency - minutesAway;
@@ -90,6 +99,7 @@ $(document).ready(function () {
         var nextTime = $("<td>").text(nextArrival);
         var minsAway = $("<td>").text((minutesAway) + " Minutes Away");
 
+        //Appends all of the items in the row to the table
         newRow.append(shipName);
         newRow.append(shipDest);
         newRow.append(shipFreq);
@@ -103,9 +113,16 @@ $(document).ready(function () {
     $(document).on("click", ".xBtn", function () {
         deleteText.html("Are you sure you want to delete the spaceship " + ($(this).attr('ship-name')) + "? <br> Please only delete if you made this ship.");
         confirmDeleteDiv.show();
+        shipKey = ($(this).attr('key'));
     });
 
-    exitDelete.click(function() {
+    exitDelete.click(function () {
+        confirmDeleteDiv.hide();
+    });
+
+    confirmDeleteButton.click(function () {
+        console.log(shipKey);
+        database.ref(shipKey).remove();
         confirmDeleteDiv.hide();
     });
 
