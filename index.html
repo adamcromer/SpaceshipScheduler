@@ -54,7 +54,8 @@
         </div>
     </div>
     <div class="container rounded border mt-4 black">
-        <h4 class="m-3 titleFont">Current Schedule</h4>
+        <h4 class="m-3 titleFont float-left">Current Schedule</h4>
+        <h4 class="m-3 titleFont float-right currentTime"></h4>
         <table class="table">
             <thead>
                 <tr class="hFont">
@@ -63,6 +64,7 @@
                     <th scope="col">Frequency (In Minutes)</th>
                     <th scope="col">Next Arrival</th>
                     <th scope="col">Minutes Away</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -70,7 +72,9 @@
         </table>
     </div>
     <div class="container rounded border mt-4 mb-5 black">
-        <h4 class="m-3 titleFont bg-black">Add Spaceship</h4>
+        <h4 class="m-3 titleFont bg-black float-left">Add Spaceship</h4>
+        <h4 class="m-3 titleFont float-right currentTime"></h4>
+        <br><br>
         <form class="m-3 pFont">
             <div class="form-group mt-2">
                 <label for="exampleInputEmail1">Spaceship Name</label>
@@ -89,7 +93,8 @@
                 <input type="number" class="form-control black" id="frequency" placeholder="1,000">
             </div>
             <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-            <h3 class="float-right titleFont border border-white rounded" id="error">All fields are required to add a spaceship. Try again.</h3>
+            <button id="clear" class="btn btn-primary float-right">Clear</button>
+            <h3 class="float-right titleFont border border-white rounded mr-5" id="error">All fields are required to add a spaceship. Try again.</h3>
         </form>
     </div>
 

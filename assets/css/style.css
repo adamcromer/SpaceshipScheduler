@@ -47,6 +47,11 @@ body {
     color:white;
 }
 
+.xBtn {
+    margin-top:0.25vw;
+    margin-bottom:0.25vw;
+}
+
 ::-webkit-scrollbar {
     width: 1vw;
 }

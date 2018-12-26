@@ -14,9 +14,11 @@ $(document).ready(function () {
     var database = firebase.database();
 
     var submit = $("#submit");
+    var clear = $("#clear");
     var table = $("#tableBody");
     var error = $("#error");
     var emptyTimeVar;
+    var currentTime = $(".currentTime");
 
     //Function to show the current time
     function setCurrentTime() {
@@ -24,6 +26,14 @@ $(document).ready(function () {
     }
     //Starts the time function to run every second
     emptyTimeVar = setInterval(setCurrentTime, 1000);
+
+    //Resets the values
+    function clearInput() {
+        $("#name").val("");
+        $("#destination").val("");
+        $("#firstTime").val("");
+        $("#frequency").val("");
+    }
 
     submit.click(function (event) {
         event.preventDefault();
@@ -39,12 +49,7 @@ $(document).ready(function () {
         }
         else {
             error.hide();
-
-            //Resets the values
-            $("#name").val("");
-            $("#destination").val("");
-            $("#firstTime").val("");
-            $("#frequency").val("");
+            clearInput();
 
             //Adds the inputs to Firebase
             database.ref().push({
@@ -56,6 +61,11 @@ $(document).ready(function () {
         }
     });
 
+    clear.click(function() {
+        event.preventDefault();
+        clearInput();
+    })
+
     //Pulls info from Firebase.
     database.ref().on("child_added", function (snapshot) {
 
@@ -63,6 +73,7 @@ $(document).ready(function () {
         var shipName = $("<td>").text(snapshot.val().name);
         var shipDest = $("<td>").text(snapshot.val().destination);
         var shipFreq = $("<td>").text("Every " + (snapshot.val().frequency) + " Minutes");
+        var deleteShip = $("<td class='btn ml-3 xBtn text-center'>").text("X");
 
         var frequency = parseInt(snapshot.val().frequency);
         var firstTime = parseInt(snapshot.val().firstTime);
@@ -80,8 +91,13 @@ $(document).ready(function () {
         newRow.append(shipFreq);
         newRow.append(nextTime);
         newRow.append(minsAway);
+        newRow.append(deleteShip);
         table.append(newRow);
 
+    });
+
+    $(document).on("click", ".xBtn", function () {
+        
     });
 
 });
