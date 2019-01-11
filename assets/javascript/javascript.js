@@ -68,8 +68,6 @@ $(document).ready(function () {
         }
     });
 
-    console.log(database);
-
     clear.click(function () {
         event.preventDefault();
         clearInput();
@@ -80,7 +78,7 @@ $(document).ready(function () {
         table.empty();
 
         //Pulls info from Firebase
-        
+        database.ref().on("child_added", function (snapshot) {
 
             //Creating rows to add to the table
             var newRow = $("<tr class='pFont black'>");
